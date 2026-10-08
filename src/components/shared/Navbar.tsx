@@ -2,7 +2,8 @@
 import Image from 'next/image';
 import React from 'react';
 import logo from '@/assets/logo-icon.png';
-import Navlinks from './Navlinks';
+
+import UserInfoPage from '../userInfo/page';
 const Navbar = () => {
     const date = new Date().toLocaleString('bn-BD',
         { dateStyle: 'full', });
@@ -18,15 +19,10 @@ const Navbar = () => {
             </div>
             {/* Buttons */}
             <div className="flex gap-2 sm:gap-3 shrink-0">
-                <button className="btn btn-sm sm:btn-md"> সাইন ইন </button>
-                <button className="btn btn-sm sm:btn-md text-white bg-[#05893E] hover:bg-[#047a36]"> সাইন আপ </button>
+                <UserInfoPage></UserInfoPage>
             </div>
         </div>
-        {/* navlinks */}
-        {/* <div>
-            <Navlinks></Navlinks>
-        </div> */}
-        {/* navlinks */}
+        
     </div>
     );
 };
