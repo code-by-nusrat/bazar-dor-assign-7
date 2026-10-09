@@ -1,7 +1,18 @@
-import Image from 'next/image';
+
 import React from 'react';
 
-const AllProductCard = ({ product }) => {
+type Product = {
+    image: React.ReactNode;
+    nameBn: string;
+    unit: string;
+    today: number | string;
+    change: {
+        dir: 'down' | 'up' | string;
+        pct: number | string;
+    };
+};
+
+const AllProductCard = ({ product }: { product: Product }) => {
     return (
         <div className='w-90 h-38 border p-6 rounded-2xl bg-white border-gray-300'>
             <div className='flex items-center gap-2'>

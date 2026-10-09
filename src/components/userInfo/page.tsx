@@ -138,6 +138,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { authClient } from '@/lib/auth-client';
+import Image from 'next/image';
 
 const UserInfoPage = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -165,7 +166,8 @@ const UserInfoPage = () => {
                     <div className="avatar">
                         <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#05893E] text-white">
                             {user.image ? (
-                                <img
+                                <Image width={36}
+                                height={36}
                                     src={user.image}
                                     alt={user.name || 'User'}
                                     className="h-full w-full object-cover"
