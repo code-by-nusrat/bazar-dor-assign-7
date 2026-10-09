@@ -30,7 +30,7 @@ const Navlinks = async () => {
                         {data.map((n, index: number) => (
                             <Link
                                 key={index}
-                                href={n.slug}
+                                href={`/category/${n.slug}`}
                                 className="flex items-center gap-1.5 text-sm sm:text-base"
                             >
                                 <span>{n.icon}</span>
