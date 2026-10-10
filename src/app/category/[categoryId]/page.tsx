@@ -1,10 +1,150 @@
 
+// // import CategoryCard from '@/components/cardStyle/CategoryCard';
+// // import Link from 'next/link';
+// // import React from 'react';
+
+// // interface Product {
+// //     id: string;
+// //     category: string;
+// //     image: string;
+// //     nameBn: string;
+// //     unit: string;
+// //     today: number;
+// //     change: {
+// //         dir: 'up' | 'down' | 'flat';
+// //         pct: number;
+// //     };
+// // }
+
+// // const CategoryNews = async ({
+// //     params,
+// // }: {
+// //     params: Promise<{ categoryId: string }>;
+// // }) => {
+// //     const { categoryId } = await params;
+
+// //     const res = await fetch(
+// //         // `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryId}`
+// //         `https://api.abcz.workers.dev/api/bazardor/products?category=${categoryId}`
+// //     );
+
+// //     if (!res.ok) {
+// //         throw new Error('Failed to fetch products');
+// //     }
+
+// //     const data: Product[] = await res.json();
+
+// //     const categoryNames: Record<string, string> = {
+// //         chal: 'চাল',
+// //         dal: 'ডাল',
+// //         tel: 'তেল',
+// //         mach: 'মাছ',
+// //         mangsho: 'মাংস',
+// //         sobji: 'সবজি',
+// //         fol: 'ফল',
+// //         moshla: 'মসলা',
+// //     };
+
+// //     const categoryNameBn =
+// //         categoryNames[categoryId] ?? categoryId;
+
+// //     const firstDataImage = data[0]?.image;
+// //     const dataLength = data.length;
+
+// //     return (
+        
+// //         <main className="min-h-screen bg-base-200">
+// //             <div>
+// //             <div className="mx-auto w-full max-w-7xl px-3 py-5 sm:px-5 sm:py-6 lg:px-8">
+
+// //                 {/* Category header */}
+// //                 <section className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 md:p-6">
+// //                     <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+// //                         <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-2xl sm:size-14 sm:text-3xl">
+// //                             {firstDataImage}
+// //                         </div>
+
+// //                         <div className="min-w-0">
+// //                             <h1 className="text-lg font-bold sm:text-xl md:text-2xl">
+// //                                 {categoryNameBn}
+// //                             </h1>
+
+// //                             <p className="mt-1 text-xs text-gray-600 sm:text-sm">
+// //                                 {dataLength} পণ্যের আজকের দাম ও পরিবর্তন
+// //                             </p>
+// //                         </div>
+// //                     </div>
+// //                 </section>
+
+// //                 {/* Sorting section */}
+// //                 <section className="mt-4 flex flex-wrap justify-end gap-3 rounded-2xl border border-gray-200 bg-white p-3 sm:mt-5 sm:p-4">
+                    
+
+// //                     <div className="flex justify-end gap-4">
+// //                         <div>
+// //                         <label
+// //                             htmlFor="sort-products"
+// //                             className="shrink-0 text-sm text-gray-500"
+// //                         >
+// //                             সাজান
+// //                         </label>
+// //                             </div>
+// //                           <div>
+// //                         <select
+// //                             id="sort-products"
+// //                             defaultValue="default"
+// //                             className="select select-bordered  w-36 max-w-full sm:select-md sm:w-44"
+// //                         >
+// //                             <option value="default">ডিফল্ট</option>
+// //                             <option value="price-low">কম দাম</option>
+// //                             <option value="price-high">বেশি দাম</option>
+// //                             <option value="name">নাম অনুযায়ী</option>
+// //                         </select>
+// //                         </div>
+// //                     </div>
+// //                 </section>
+
+// //                 {/* Product count */}
+// //                 <div className="py-4">
+// //                     <p className="text-sm font-medium text-gray-600 sm:text-base">
+// //                         মোট {dataLength} টি পণ্য দেখানো হচ্ছে
+// //                     </p>
+// //                 </div>
+
+// //                 {/* Product grid */}
+// //                 {dataLength > 0 ? (
+// //                     <div className="grid grid-cols-1 justify-items-center gap-3 sm:grid-cols-2 sm:justify-items-stretch sm:gap-4 lg:grid-cols-3 lg:gap-5">
+// //                         {data.map((product) => (
+// //                             <CategoryCard
+// //                                 key={product.id}
+// //                                 product={product}
+// //                             />
+// //                         ))}
+// //                     </div>
+// //                 ) : (
+// //                     <div className="rounded-xl border border-gray-200 bg-white p-8 text-center">
+// //                         <p className="text-gray-600">
+// //                             এই ক্যাটাগরিতে কোনো পণ্য পাওয়া যায়নি।
+// //                         </p>
+// //                     </div>
+// //                 )}
+// //             </div>
+// //             <Link href='/'><h2 className='text-gray-600 text-center mt-20 mb-0'>← হোম পেজে ফিরে যান</h2></Link>
+// //             </div>
+// //         </main>
+// //     );
+// // };
+
+// // export default CategoryNews;
+
+
 // import CategoryCard from '@/components/cardStyle/CategoryCard';
 // import Link from 'next/link';
 // import React from 'react';
 
 // interface Product {
 //     id: string;
+//     slug: string;
 //     category: string;
 //     image: string;
 //     nameBn: string;
@@ -16,6 +156,11 @@
 //     };
 // }
 
+// interface Category {
+//     slug: string;
+//     nameBn: string;
+// }
+
 // const CategoryNews = async ({
 //     params,
 // }: {
@@ -23,120 +168,109 @@
 // }) => {
 //     const { categoryId } = await params;
 
-//     const res = await fetch(
-//         // `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryId}`
-//         `https://api.abcz.workers.dev/api/bazardor/products?category=${categoryId}`
-//     );
+//     const [productsRes, categoriesRes] = await Promise.all([
+//         fetch(
+//             `https://api.abcz.workers.dev/api/bazardor/products?category=${categoryId}`
+//         ),
+//         fetch('http://localhost:3000/category.json'),
+//     ]);
 
-//     if (!res.ok) {
+//     if (!productsRes.ok) {
 //         throw new Error('Failed to fetch products');
 //     }
 
-//     const data: Product[] = await res.json();
-
-//     const categoryNames: Record<string, string> = {
-//         chal: 'চাল',
-//         dal: 'ডাল',
-//         tel: 'তেল',
-//         mach: 'মাছ',
-//         mangsho: 'মাংস',
-//         sobji: 'সবজি',
-//         fol: 'ফল',
-//         moshla: 'মসলা',
-//     };
+//     const data: Product[] = await productsRes.json();
+//     const categories: Category[] = categoriesRes.ok
+//         ? await categoriesRes.json()
+//         : [];
 
 //     const categoryNameBn =
-//         categoryNames[categoryId] ?? categoryId;
+//         categories.find((c) => c.slug === categoryId)?.nameBn ?? categoryId;
 
 //     const firstDataImage = data[0]?.image;
 //     const dataLength = data.length;
+//     const countBn = dataLength.toLocaleString('bn-BD');
 
 //     return (
-        
 //         <main className="min-h-screen bg-base-200">
 //             <div>
-//             <div className="mx-auto w-full max-w-7xl px-3 py-5 sm:px-5 sm:py-6 lg:px-8">
-
-//                 {/* Category header */}
-//                 <section className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 md:p-6">
-//                     <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-//                         <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-2xl sm:size-14 sm:text-3xl">
-//                             {firstDataImage}
-//                         </div>
-
-//                         <div className="min-w-0">
-//                             <h1 className="text-lg font-bold sm:text-xl md:text-2xl">
-//                                 {categoryNameBn}
-//                             </h1>
-
-//                             <p className="mt-1 text-xs text-gray-600 sm:text-sm">
-//                                 {dataLength} পণ্যের আজকের দাম ও পরিবর্তন
-//                             </p>
-//                         </div>
-//                     </div>
-//                 </section>
-
-//                 {/* Sorting section */}
-//                 <section className="mt-4 flex flex-wrap justify-end gap-3 rounded-2xl border border-gray-200 bg-white p-3 sm:mt-5 sm:p-4">
-                    
-
-//                     <div className="flex justify-end gap-4">
-//                         <div>
-//                         <label
-//                             htmlFor="sort-products"
-//                             className="shrink-0 text-sm text-gray-500"
-//                         >
-//                             সাজান
-//                         </label>
+//                 <div className="mx-auto w-full max-w-7xl px-3 py-5 sm:px-5 sm:py-6 lg:px-8">
+//                     {/* Category header */}
+//                     <section className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 md:p-6">
+//                         <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+//                             <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-2xl sm:size-14 sm:text-3xl">
+//                                 {firstDataImage}
 //                             </div>
-//                           <div>
-//                         <select
-//                             id="sort-products"
-//                             defaultValue="default"
-//                             className="select select-bordered  w-36 max-w-full sm:select-md sm:w-44"
-//                         >
-//                             <option value="default">ডিফল্ট</option>
-//                             <option value="price-low">কম দাম</option>
-//                             <option value="price-high">বেশি দাম</option>
-//                             <option value="name">নাম অনুযায়ী</option>
-//                         </select>
+
+//                             <div className="min-w-0">
+//                                 <h1 className="text-lg font-bold sm:text-xl md:text-2xl">
+//                                     {categoryNameBn}
+//                                 </h1>
+
+//                                 <p className="mt-1 text-xs text-gray-600 sm:text-sm">
+//                                     {countBn}টি পণ্যের আজকের দাম ও পরিবর্তন
+//                                 </p>
+//                             </div>
 //                         </div>
-//                     </div>
-//                 </section>
+//                     </section>
 
-//                 {/* Product count */}
-//                 <div className="py-4">
-//                     <p className="text-sm font-medium text-gray-600 sm:text-base">
-//                         মোট {dataLength} টি পণ্য দেখানো হচ্ছে
-//                     </p>
-//                 </div>
+//                     {/* Sorting section */}
+//                     <section className="mt-4 flex flex-wrap justify-end gap-3 rounded-2xl border border-gray-200 bg-white p-3 sm:mt-5 sm:p-4">
+//                         <div className="flex items-center justify-end gap-4">
+//                             <label
+//                                 htmlFor="sort-products"
+//                                 className="shrink-0 text-sm text-gray-500"
+//                             >
+//                                 সাজান
+//                             </label>
 
-//                 {/* Product grid */}
-//                 {dataLength > 0 ? (
-//                     <div className="grid grid-cols-1 justify-items-center gap-3 sm:grid-cols-2 sm:justify-items-stretch sm:gap-4 lg:grid-cols-3 lg:gap-5">
-//                         {data.map((product) => (
-//                             <CategoryCard
-//                                 key={product.id}
-//                                 product={product}
-//                             />
-//                         ))}
-//                     </div>
-//                 ) : (
-//                     <div className="rounded-xl border border-gray-200 bg-white p-8 text-center">
-//                         <p className="text-gray-600">
-//                             এই ক্যাটাগরিতে কোনো পণ্য পাওয়া যায়নি।
+//                             <select
+//                                 id="sort-products"
+//                                 defaultValue="default"
+//                                 className="select select-bordered w-36 max-w-full sm:select-md sm:w-44"
+//                             >
+//                                 <option value="default">ডিফল্ট</option>
+//                                 <option value="price-low">কম দাম</option>
+//                                 <option value="price-high">বেশি দাম</option>
+//                                 <option value="name">নাম অনুযায়ী</option>
+//                             </select>
+//                         </div>
+//                     </section>
+
+//                     {/* Product count */}
+//                     <div className="py-4">
+//                         <p className="text-sm font-medium text-gray-600 sm:text-base">
+//                             মোট {countBn}টি পণ্য দেখানো হচ্ছে
 //                         </p>
 //                     </div>
-//                 )}
-//             </div>
-//             <Link href='/'><h2 className='text-gray-600 text-center mt-20 mb-0'>← হোম পেজে ফিরে যান</h2></Link>
+
+//                     {/* Product grid */}
+//                     {dataLength > 0 ? (
+//                         <div className="grid grid-cols-1 justify-items-center gap-3 sm:grid-cols-2 sm:justify-items-stretch sm:gap-4 lg:grid-cols-3 lg:gap-5">
+//                             {data.map((product) => (
+//                                 <CategoryCard key={product.id} product={product} />
+//                             ))}
+//                         </div>
+//                     ) : (
+//                         <div className="rounded-xl border border-gray-200 bg-white p-8 text-center">
+//                             <p className="text-gray-600">
+//                                 এই ক্যাটাগরিতে কোনো পণ্য পাওয়া যায়নি।
+//                             </p>
+//                         </div>
+//                     )}
+//                 </div>
+
+//                 <Link href="/">
+//                     <h2 className="mb-0 mt-20 text-center text-gray-600">
+//                         ← হোম পেজে ফিরে যান
+//                     </h2>
+//                 </Link>
 //             </div>
 //         </main>
 //     );
 // };
 
 // export default CategoryNews;
-
 
 import CategoryCard from '@/components/cardStyle/CategoryCard';
 import Link from 'next/link';
@@ -161,18 +295,23 @@ interface Category {
     nameBn: string;
 }
 
+type SortKey = 'default' | 'price-low' | 'price-high' | 'name';
+
 const CategoryNews = async ({
     params,
+    searchParams,
 }: {
     params: Promise<{ categoryId: string }>;
+    searchParams: Promise<{ sort?: string }>;
 }) => {
     const { categoryId } = await params;
+    const { sort } = await searchParams;
 
     const [productsRes, categoriesRes] = await Promise.all([
         fetch(
             `https://api.abcz.workers.dev/api/bazardor/products?category=${categoryId}`
         ),
-        fetch('http://localhost:3000/category.json'),
+        fetch(`https://api.abcz.workers.dev/api/bazardor/categories`),
     ]);
 
     if (!productsRes.ok) {
@@ -186,6 +325,25 @@ const CategoryNews = async ({
 
     const categoryNameBn =
         categories.find((c) => c.slug === categoryId)?.nameBn ?? categoryId;
+
+    // sorting: কম দাম / বেশি দাম / নাম অনুযায়ী
+    const sortKey: SortKey =
+        sort === 'price-low' || sort === 'price-high' || sort === 'name'
+            ? sort
+            : 'default';
+
+    const products = [...data].sort((a, b) => {
+        switch (sortKey) {
+            case 'price-low':
+                return a.today - b.today;
+            case 'price-high':
+                return b.today - a.today;
+            case 'name':
+                return a.nameBn.localeCompare(b.nameBn, 'bn');
+            default:
+                return 0;
+        }
+    });
 
     const firstDataImage = data[0]?.image;
     const dataLength = data.length;
@@ -215,8 +373,8 @@ const CategoryNews = async ({
                     </section>
 
                     {/* Sorting section */}
-                    <section className="mt-4 flex flex-wrap justify-end gap-3 rounded-2xl border border-gray-200 bg-white p-3 sm:mt-5 sm:p-4">
-                        <div className="flex items-center justify-end gap-4">
+                    <section className="mt-4 rounded-2xl border border-gray-200 bg-white p-3 sm:mt-5 sm:p-4">
+                        <form className="flex flex-wrap items-center justify-end gap-3">
                             <label
                                 htmlFor="sort-products"
                                 className="shrink-0 text-sm text-gray-500"
@@ -226,7 +384,8 @@ const CategoryNews = async ({
 
                             <select
                                 id="sort-products"
-                                defaultValue="default"
+                                name="sort"
+                                defaultValue={sortKey}
                                 className="select select-bordered w-36 max-w-full sm:select-md sm:w-44"
                             >
                                 <option value="default">ডিফল্ট</option>
@@ -234,7 +393,14 @@ const CategoryNews = async ({
                                 <option value="price-high">বেশি দাম</option>
                                 <option value="name">নাম অনুযায়ী</option>
                             </select>
-                        </div>
+
+                            <button
+                                type="submit"
+                                className="rounded-lg bg-[#05893E] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#047535]"
+                            >
+                                প্রয়োগ
+                            </button>
+                        </form>
                     </section>
 
                     {/* Product count */}
@@ -247,7 +413,7 @@ const CategoryNews = async ({
                     {/* Product grid */}
                     {dataLength > 0 ? (
                         <div className="grid grid-cols-1 justify-items-center gap-3 sm:grid-cols-2 sm:justify-items-stretch sm:gap-4 lg:grid-cols-3 lg:gap-5">
-                            {data.map((product) => (
+                            {products.map((product) => (
                                 <CategoryCard key={product.id} product={product} />
                             ))}
                         </div>

@@ -1,7 +1,9 @@
 
-import Link from 'next/link';
+
+
 import React from 'react';
 import MarqueeLink from './MarqueeLink';
+import NavLink from './NavLink';
 
 interface NavType {
     id: string,
@@ -11,12 +13,11 @@ interface NavType {
 }
 const Navlinks = async () => {
     const res = await fetch(
-        "http://localhost:3000/category.json"
+        "https://api.abcz.workers.dev/api/bazardor/categories"
     );
 
     const data:NavType[] = await res.json();
 
-    console.log()
     return (
         <div className="w-full mt-4 sm:mt-10">
 
@@ -26,16 +27,14 @@ const Navlinks = async () => {
             {/* Navlinks Container */}
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="overflow-x-auto">
-                    <div className="flex items-center gap-6 sm:gap-8 lg:gap-10 py-4 min-w-max">
-                        {data.map((n, index: number) => (
-                            <Link
-                                key={index}
-                                href={`/category/${n.slug}`}
-                                className="flex items-center gap-1.5 text-sm sm:text-base"
-                            >
-                                <span>{n.icon}</span>
-                                <span>{n.nameBn}</span>
-                            </Link>
+                    <div className="flex items-center gap-2 sm:gap-3 py-3 min-w-max">
+                        {data.map((n) => (
+                            <NavLink
+                                key={n.slug}
+                                slug={n.slug}
+                                icon={n.icon}
+                                nameBn={n.nameBn}
+                            />
                         ))}
                     </div>
                 </div>
@@ -54,4 +53,3 @@ const Navlinks = async () => {
 };
 
 export default Navlinks;
-
