@@ -13,7 +13,7 @@ interface NavType {
 }
 const Navlinks = async () => {
     const res = await fetch(
-        "https://api.abcz.workers.dev/api/bazardor/categories"
+        "https://openapi.programming-hero.com/api/bazardor/categories"
     );
 
     const data:NavType[] = await res.json();

@@ -36,9 +36,9 @@ const CategoryNews = async ({
 
     const [productsRes, categoriesRes] = await Promise.all([
         fetch(
-            `https://api.abcz.workers.dev/api/bazardor/products?category=${categoryId}`
+            `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`
         ),
-        fetch(`https://api.abcz.workers.dev/api/bazardor/categories`),
+        fetch(`https://openapi.programming-hero.com/api/bazardor/products`),
     ]);
 
     if (!productsRes.ok) {
