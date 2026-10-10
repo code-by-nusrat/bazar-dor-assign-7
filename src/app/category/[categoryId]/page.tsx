@@ -2,7 +2,7 @@
 import CategoryCard from '@/components/cardStyle/CategoryCard';
 import Link from 'next/link';
 import React from 'react';
-
+import { getApi } from '@/lib/api';   // ✅ add this
 interface Product {
     id: string;
     slug: string;
@@ -34,22 +34,30 @@ const CategoryNews = async ({
     const { categoryId } = await params;
     const { sort } = await searchParams;
 
-    const [productsRes, categoriesRes] = await Promise.all([
-        fetch(
-            `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`
-        ),
-        fetch(`https://openapi.programming-hero.com/api/bazardor/products`),
-    ]);
+    // const [productsRes, categoriesRes] = await Promise.all([
+    //     fetch(
+    //         `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`
+    //     ),
+    //     fetch(`https://openapi.programming-hero.com/api/bazardor/categories`),
+    // ]);
+    
 
-    if (!productsRes.ok) {
-        throw new Error('Failed to fetch products');
-    }
+    // if (!productsRes.ok) {
+    //     throw new Error('Failed to fetch products');
+    // }
 
-    const data: Product[] = await productsRes.json();
-    const categories: Category[] = categoriesRes.ok
-        ? await categoriesRes.json()
-        : [];
+    // const data: Product[] = await productsRes.json();
+    // const categories: Category[] = categoriesRes.ok
+    //     ? await categoriesRes.json()
+    //     : [];
+// Get both lists. If the API fails, we get [] instead of a crash.
+const [allProducts, categories] = await Promise.all([
+    getApi<Product[]>('/products', []),
+    getApi<Category[]>('/categories', []),
+]);
 
+// Keep only the products of this category (chal, dal, tel...)
+const data = allProducts.filter((p) => p.category === categoryId);
     const categoryNameBn =
         categories.find((c) => c.slug === categoryId)?.nameBn ?? categoryId;
 
