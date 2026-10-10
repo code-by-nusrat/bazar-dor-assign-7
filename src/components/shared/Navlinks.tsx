@@ -1,5 +1,6 @@
 
 
+import { getApi } from '@/lib/api';
 
 import React from 'react';
 import MarqueeLink from './MarqueeLink';
@@ -12,12 +13,12 @@ interface NavType {
     icon: string
 }
 const Navlinks = async () => {
-    const res = await fetch(
-        "https://openapi.programming-hero.com/api/bazardor/categories"
-    );
+    // const res = await fetch(
+    //     "https://openapi.programming-hero.com/api/bazardor/categories"
+    // );
 
-    const data:NavType[] = await res.json();
-
+    // const data:NavType[] = await res.json();
+    const data = await getApi<NavType[]>('/categories', []);
     return (
         <div className="w-full mt-4 sm:mt-10">
 
@@ -42,12 +43,12 @@ const Navlinks = async () => {
 
             {/* Bottom Full Width Divider */}
             <div className="border-b border-gray-200 w-full" />
-            
+
             {/* marquee */}
             <div>
                 <MarqueeLink></MarqueeLink>
             </div>
-             <div className="border-b border-gray-200 w-full " />
+            <div className="border-b border-gray-200 w-full " />
         </div>
     );
 };

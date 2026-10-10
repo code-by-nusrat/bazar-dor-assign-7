@@ -1,5 +1,6 @@
 import MarqueeText from "react-marquee-text"
 import "react-marquee-text/dist/styles.css"
+import { getApi } from '@/lib/api';
 interface MarqueeType {
     id: number,
     slug: string,
@@ -25,9 +26,10 @@ interface MarqueeType {
     }[];
 }
 const MarqueeLink = async () => {
-    const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products")
-    const data: MarqueeType[] = await res.json()
-    console.log(data)
+    // const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products")
+    // const data: MarqueeType[] = await res.json()
+    // console.log(data)
+        const data = await getApi<MarqueeType[]>('/products', [])
 
     return (
         <MarqueeText direction="right" pauseOnHover={true} duration={8}>
