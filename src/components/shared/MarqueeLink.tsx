@@ -25,7 +25,7 @@ interface MarqueeType {
     }[];
 }
 const MarqueeLink = async () => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products")
+    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
     const data: MarqueeType[] = await res.json()
     console.log(data)
 
@@ -39,17 +39,17 @@ const MarqueeLink = async () => {
                             <h4>{p.nameBn}</h4>
                             <h4 className="ml-2">{p.today} টাকা / {p.unit}</h4>
                             <h4
-                                className={`ml-2 ${p.change.dir === "down"
+                                className={`ml-2 ${p.change.dir === "up"
                                         ? "text-red-500"
-                                        : p.change.dir === "up"
+                                        : p.change.dir === "down"
                                             ? "text-green-500"
                                             : "text-gray-500"
                                     }`}
                             >
                                 {p.change.dir === "down"
-                                    ? "▲"
+                                    ? "▼"
                                     : p.change.dir === "up"
-                                        ? "▼"
+                                        ? "▲"
                                         : "—"}{" "}
                                 {p.change.pct}%
                             </h4>

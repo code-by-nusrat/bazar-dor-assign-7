@@ -1,51 +1,83 @@
+
+import Link from 'next/link';
 import React from 'react';
- interface LeastProductTypt{
+
+interface LeastProductType {
     image: React.ReactNode;
+    slug: string;
     nameBn: string;
     unit: string;
     today: string | number;
     change: {
-        dir: "down" | "up" | "same";
+        dir: 'down' | 'up' | 'same';
         pct: string | number;
     };
- }
-const LeastProduct = ({ leastProduct }: { leastProduct: LeastProductTypt }) => {
+}
+
+interface LeastProductProps {
+    leastProduct: LeastProductType;
+}
+
+const LeastProduct = ({ leastProduct }: LeastProductProps) => {
+    const { image, slug, nameBn, unit, today, change } = leastProduct;
+
+    const changeColor =
+        change.dir === 'up'
+            ? 'text-red-500'
+            : change.dir === 'down'
+              ? 'text-green-600'
+              : 'text-gray-500';
+
+    const changeIcon =
+        change.dir === 'up'
+            ? '▲'
+            : change.dir === 'down'
+              ? '▼'
+              : '—';
+
     return (
-        <div>
-            <div className='w-90 h-38 border p-6 rounded-2xl bg-white border-gray-300'>
-                <div className='flex items-center gap-2'>
-                    <div className='bg-gray-300 p-2 rounded-2xl'>
-                        <h3 >{leastProduct.image}</h3>
-                    </div>
-                    <div>
-                        <h3 className='font-semibold text-[1rem]'>{leastProduct.nameBn}</h3>
-                        <p className='text-[14px] font-medium text-gray-600'>প্রতি {leastProduct.unit}</p>
-                    </div>
-
+        <Link
+            href={`/${slug}`}
+            className="block rounded-2xl border border-gray-200 bg-white p-5 transition hover:shadow-md"
+        >
+            {/* Product information */}
+            <div className="flex items-center gap-3">
+                <div className="rounded-2xl bg-gray-100 p-3">
+                    <span>{image}</span>
                 </div>
-                <p className='mt-2 font-medium'>আজকের দাম</p>
-                <div className='flex justify-between items-center'>
-                    <h3 className='text-[14px]'><span className='font-bold text-[1.4rem] mr-2'>{leastProduct.today}</span>টাকা</h3>
-                    <h3 className=' p-1 rounded-2xl bg-gray-200  font-bold'>
-                        <p className={`ml-2 ${leastProduct.change.dir === "down"
-                            ? "text-red-500"
-                            : leastProduct.change.dir === "up"
-                                ? "text-green-600"
-                                : "text-gray-500"
-                            }`}
-                        >
-                            {leastProduct.change.dir === "down"
-                                ? "▲"
-                                : leastProduct.change.dir === "up"
-                                    ? "▼"
-                                    : "—"}{" "}
-                            {leastProduct.change.pct}%
 
-                        </p>
+                <div>
+                    <h3 className="font-semibold text-base">
+                        {nameBn}
                     </h3>
+
+                    <p className="text-sm font-medium text-gray-600">
+                        প্রতি {unit}
+                    </p>
                 </div>
             </div>
-        </div>
+
+            {/* Today's price */}
+            <p className="mt-3 font-medium">
+                আজকের দাম
+            </p>
+
+            <div className="flex items-center justify-between gap-2">
+                <p className="text-sm">
+                    <span className="mr-2 text-2xl font-bold">
+                        {today}
+                    </span>
+                    টাকা
+                </p>
+
+                {/* Price change */}
+                <span
+                    className={`rounded-xl bg-gray-100 px-3 py-1 text-sm font-bold ${changeColor}`}
+                >
+                    {changeIcon} {change.pct}%
+                </span>
+            </div>
+        </Link>
     );
 };
 

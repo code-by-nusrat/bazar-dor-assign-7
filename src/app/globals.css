@@ -6,3 +6,48 @@
 *{
   font-family: "Hind Siliguri", sans-serif;
 }
+
+.product-card {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background-color: #ffffff;
+    color: #111827;
+    text-decoration: none;
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Hover effect */
+.product-card:hover {
+    background-color: #f0fdf4;
+    border-color: #16a34a;
+    box-shadow: 0 6px 18px rgb(22 163 74 / 10%);
+    transform: translateY(-2px);
+}
+
+/* While clicking */
+.product-card:active {
+    background-color: #dcfce7;
+    border-color: #15803d;
+    transform: scale(0.98);
+}
+
+/* Keyboard focus */
+.product-card:focus-visible {
+    outline: 3px solid #22c55e;
+    outline-offset: 3px;
+}
+
+/* Small screens */
+@media (max-width: 640px) {
+    .product-card {      
+        border-radius: 14px;
+    }
+}

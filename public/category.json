@@ -1,0 +1,10 @@
+[
+  { "id": 1, "slug": "chal", "nameBn": "চাল", "nameEn": "Rice", "icon": "🍚", "productCount": 7 },
+  { "id": 2, "slug": "dal", "nameBn": "ডাল", "nameEn": "Pulses", "icon": "🫘", "productCount": 7 },
+  { "id": 3, "slug": "tel", "nameBn": "তেল", "nameEn": "Oil", "icon": "🛢️", "productCount": 6 },
+  { "id": 4, "slug": "sobji", "nameBn": "সবজি", "nameEn": "Vegetables", "icon": "🥬", "productCount": 12 },
+  { "id": 5, "slug": "mach", "nameBn": "মাছ", "nameEn": "Fish", "icon": "🐟", "productCount": 10 },
+  { "id": 6, "slug": "mangsho", "nameBn": "মাংস", "nameEn": "Meat", "icon": "🍗", "productCount": 7 },
+  { "id": 7, "slug": "dim-dui", "nameBn": "ডিম-দুধ", "nameEn": "Eggs & Dairy", "icon": "🥛", "productCount": 7 },
+  { "id": 8, "slug": "mosla", "nameBn": "মসলা", "nameEn": "Spices", "icon": "🌶️", "productCount": 10 }
+]

@@ -1,4 +1,4 @@
-import AllProducts from '@/components/products/AllProducts';
+import AllProducts from '@/components/product/AllProducts';
 import Banner from '@/components/homepage/Banner';
 import React from 'react';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import AllProductCard from '../cardStyle/AllProductCard';
+import AllProductCard from '../all-Product/AllProductsCard';
 import TopProduct from '../cardStyle/TopProduct';
 import LeastProduct from '../cardStyle/LeastProduct';
 
@@ -11,6 +11,7 @@ interface ProductChange {
 interface Product {
     change: ProductChange;
     image: string;
+    slug: string;
     nameBn: string;
     unit: string;
     today: number;
@@ -18,7 +19,7 @@ interface Product {
 }
 
 const getProducts = async (): Promise<Product[]> => {
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products');
+    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
     const data: Product[] = await res.json();
     return data;
 };
@@ -42,7 +43,7 @@ const AllProducts = async (): Promise<React.JSX.Element> => {
                     {
                         sortHighPrice.map((topProduct: Product, index: number): React.JSX.Element => (
                             <div key={index}>
-                                 <TopProduct topProduct={topProduct}></TopProduct>
+                                <TopProduct topProduct={topProduct}></TopProduct>
                             </div>
                         ))
                     }
@@ -55,10 +56,10 @@ const AllProducts = async (): Promise<React.JSX.Element> => {
             <div>
                 <h1 className='text-[1.2rem] font-bold mt-12 mb-5'><span className='text-green-600'>▼</span>আজ দাম কমেছে</h1>
                 <div className='grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 rounded-2xl '>
-                       {
+                    {
                         sortLeastPrice.map((leastProduct: Product, index: number): React.JSX.Element => (
                             <div key={index}>
-                                 <LeastProduct leastProduct={leastProduct}></LeastProduct>
+                                <LeastProduct leastProduct={leastProduct}></LeastProduct>
                             </div>
                         ))
                     }
@@ -67,20 +68,23 @@ const AllProducts = async (): Promise<React.JSX.Element> => {
             {/* price decrease */}
 
             {/* all product */}
-            <div>
+            {/* <div>
                 <h1 className='text-[1.2rem] font-bold mt-12 mb-3'>সব পণ্য</h1>
                 <p className='mb-3 font-medium text-gray-600'>মোট ৩৩টি পণ্য দেখানো হচ্ছে</p>
                 <div className='grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 rounded-2xl '>
                     {
                        productsData.map((product: Product, index: number): React.JSX.Element => (
-                        <div key={index}>
-                             <AllProductCard product={product}></AllProductCard>
-                        </div>
+                        <div key={index}> */}
+                             <AllProductCard productsData={productsData}></AllProductCard>
+                        {/* </div>
                        )) 
                     }
                 </div>
-            </div>
+            </div> */}
             {/* all product */}
+
+            
+            
         </div>
     );
 };

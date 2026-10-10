@@ -2,6 +2,7 @@
 import React from 'react';
 import bannerPic from '@/assets/bazar-hero.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Banner = () => {
     const date = new Date().toLocaleString('bn-BD', {
@@ -21,7 +22,7 @@ const Banner = () => {
                                 alt="banner"
                                 width={315}
                                 height={263}
-                                className="w-52 sm:w-64 lg:w-[315px] h-auto"
+                                className="w-52 sm:w-64 lg:w-78.75 h-auto"
                             />
                         </div>
 
@@ -41,9 +42,13 @@ const Banner = () => {
                                 দামের পরিবর্তন এক জায়গায়।
                             </p>
 
-                            <button className="btn bg-[#05893E] text-white border-none hover:bg-[#047a36]">
+                            {/* <button  className="btn bg-[#05893E] text-white border-none hover:bg-[#047a36]">
+                                সব পণ্য দেখুন
+                            </button> */}
+                            <a href="#সব-পণ্য"> <button className="btn bg-[#05893E] text-white border-none hover:bg-[#047a36]">
                                 সব পণ্য দেখুন
                             </button>
+                            </a>
                         </div>
 
                     </div>

@@ -11,7 +11,7 @@ interface NavType {
 }
 const Navlinks = async () => {
     const res = await fetch(
-        'https://api.api-store.workers.dev/api/bazardor/categories'
+        "http://localhost:3000/category.json"
     );
 
     const data:NavType[] = await res.json();
@@ -54,3 +54,4 @@ const Navlinks = async () => {
 };
 
 export default Navlinks;
+
